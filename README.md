@@ -1,3 +1,6 @@
+[ ![Codeship Status for ngabor84/guzzle-wsse-middleware](https://app.codeship.com/projects/bb473260-4b7f-0136-d461-0a55bf1c344a/status?branch=master)](https://app.codeship.com/projects/292946)
+[![GitHub license](https://img.shields.io/github/license/ngabor84/guzzle-wsse-middleware.svg)](https://github.com/ngabor84/guzzle-wsse-middleware/blob/master/LICENSE.md)
+
 # Guzzle WSSE Middleware
 
 This authentication middleware add WSSE sign functionality to Guzzle Http Client.
