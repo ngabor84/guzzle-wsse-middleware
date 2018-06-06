@@ -63,7 +63,7 @@ class WsseMiddleware
 
     private function generateNonce(): string
     {
-        return hash('sha512', uniqid('', true));
+        return md5(uniqid('', true));
     }
 
     private function getCreatedAtString(): string
@@ -73,6 +73,6 @@ class WsseMiddleware
 
     private function generateDigest(string $nonce, string $createdAt, string $password): string
     {
-        return base64_encode(sha1($nonce . $createdAt . $password, true));
+        return base64_encode(sha1($nonce . $createdAt . $password));
     }
 }

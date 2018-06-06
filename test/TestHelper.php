@@ -60,7 +60,7 @@ trait TestHelper
         $passwordDigest = $matches[2][0];
         $nonce = $matches[3][0];
         $created = $matches[4][0];
-        $expectedPasswordDigest = base64_encode(sha1($nonce . $created . 'test_pass', true));
+        $expectedPasswordDigest = base64_encode(sha1($nonce . $created . 'test_pass'));
 
         $this->assertEquals($expectedPasswordDigest, $passwordDigest);
     }
