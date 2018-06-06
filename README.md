@@ -20,6 +20,6 @@ $stack->push($wsseMiddleware);
 
 $client   = new \GuzzleHttp\Client(['handler' => $stack]);
 
-// Important: set the auth option to escher to activate the middleware
+// Important: set the auth option to wsse to activate the middleware
 $response = $client->get('http://www.8points.de', ['auth' => 'wsse']);
 ```
