@@ -47,7 +47,7 @@ trait TestHelper
         $expectedHeaderParts = ['Username', 'PasswordDigest', 'Nonce', 'Created'];
 
         foreach ($expectedHeaderParts as $name) {
-            $this->assertContains($name, $authHeader);
+            $this->assertStringContainsString($name, $authHeader);
         }
 
         $this->assertIsValidSignature($authHeader);

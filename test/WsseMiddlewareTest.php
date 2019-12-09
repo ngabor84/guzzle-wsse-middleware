@@ -75,6 +75,6 @@ class WsseMiddlewareTest extends TestCase
         $this->assertTrue($request->hasHeader('authorization'));
         $this->assertTrue($request->hasHeader('x-wsse'));
         $authHeader = $request->getHeader('x-wsse')[0];
-        $this->assertContains('Created="2018-01-01T11:11:11+00:00"', $authHeader);
+        $this->assertStringContainsString('Created="2018-01-01T11:11:11+00:00"', $authHeader);
     }
 }

@@ -31,7 +31,7 @@ class WsseMiddleware
     public function __invoke(callable $handler): \Closure
     {
         return function (RequestInterface $request, array $options) use ($handler) {
-            if ($options['auth'] == 'wsse') {
+            if ($options['auth'] === 'wsse') {
                 $request = $this->signRequest($request);
             }
 
@@ -51,7 +51,7 @@ class WsseMiddleware
                 sprintf('Username="%s"', $this->username),
                 sprintf('PasswordDigest="%s"', $digest),
                 sprintf('Nonce="%s"', $nonce),
-                sprintf('Created="%s"', $createdAt)
+                sprintf('Created="%s"', $createdAt),
             ]
         );
 
