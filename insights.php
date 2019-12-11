@@ -2,21 +2,11 @@
 
 declare(strict_types=1);
 
-use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenDefineFunctions;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenFinalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses;
-use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenPrivateMethods;
-use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
 use NunoMaduro\PhpInsights\Domain\Metrics\Architecture\Classes;
-use NunoMaduro\PhpInsights\Domain\Sniffs\ForbiddenSetterSniff;
-use ObjectCalisthenics\Sniffs\Metrics\MethodPerClassLimitSniff;
-use ObjectCalisthenics\Sniffs\NamingConventions\ElementNameMinimalLengthSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\Files\LineLengthSniff;
 use PhpCsFixer\Fixer\ReturnNotation\ReturnAssignmentFixer;
-use SlevomatCodingStandard\Sniffs\Classes\SuperfluousExceptionNamingSniff;
-use SlevomatCodingStandard\Sniffs\Namespaces\AlphabeticallySortedUsesSniff;
-use SlevomatCodingStandard\Sniffs\TypeHints\DeclareStrictTypesSniff;
-use SlevomatCodingStandard\Sniffs\TypeHints\TypeHintDeclarationSniff;
 
 return [
 
@@ -52,7 +42,7 @@ return [
     |
     */
 
-    'ide' => null,
+    'ide' => 'phpstorm',
     /*
     |--------------------------------------------------------------------------
     | Configuration
@@ -75,30 +65,14 @@ return [
     ],
 
     'remove' => [
-        AlphabeticallySortedUsesSniff::class,
-        DeclareStrictTypesSniff::class,
-        ForbiddenDefineFunctions::class,
         ForbiddenNormalClasses::class,
-        ForbiddenTraits::class,
-        TypeHintDeclarationSniff::class,
-        ForbiddenSetterSniff::class,
-        SuperfluousExceptionNamingSniff::class,
     ],
 
     'config' => [
-        ForbiddenPrivateMethods::class => [
-            'title' => 'The usage of private methods is not idiomatic in Laravel.',
-        ],
-        MethodPerClassLimitSniff::class => [
-            'maxCount' => 15,
-        ],
         LineLengthSniff::class => [
             'lineLimit' => 120,
-            'absoluteLineLimit' => 140,
+            'absoluteLineLimit' => 120,
             'ignoreComments' => false,
-        ],
-        ElementNameMinimalLengthSniff::class => [
-            'allowedShortNames' => ['e'],
         ],
         ReturnAssignmentFixer::class => [
             'exclude' => [
